@@ -39,3 +39,12 @@ button {
 button:hover {
     background-color: #004d00;
 }
+
+/* Small hints under input fields */
+.field-info {
+    display: block;
+    margin-top: -5px;
+    margin-bottom: 10px;
+    font-size: 0.9em;
+    color: #666;
+}

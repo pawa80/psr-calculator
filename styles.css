@@ -4,6 +4,7 @@ body {
     color: #333;
     margin: 0;
     padding: 0;
+    overflow-x: hidden; /* prevent horizontal scroll */
 }
 .container {
     max-width: 600px;
@@ -23,7 +24,8 @@ form label {
 input[type="text"] {
     width: 100%;
     box-sizing: border-box;
-    padding: 10px;
+    padding: 12px 10px; /* larger tap target */
+    font-size: 16px; /* prevent mobile zoom */
     margin-top: 0.3em;
 }
 #result {
@@ -41,7 +43,7 @@ input[type="text"] {
 button {
     background-color: #006400;
     color: white;
-    padding: 10px 15px;
+    padding: 12px 15px; /* larger tap target */
     border: none;
     cursor: pointer;
 }
@@ -57,4 +59,13 @@ button:hover {
     font-size: 0.9em;
     color: #666;
     font-weight: 300;
+}
+
+@media (max-width: 400px) {
+    body {
+        font-size: 0.9em; /* slightly smaller text */
+    }
+    .container {
+        padding: 1em;
+    }
 }

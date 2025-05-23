@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Premier League PSR Transfer Spend Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Premier League PSR Transfer Spend Calculator</h1>
+        <form id="calculator">
+            <label>Annual Operating Loss (£):
+                <input type="number" id="operatingLoss" placeholder="e.g. 40000000">
+            </label>
+            <label>Annual Transfer Income (£):
+                <input type="number" id="transferIncome" placeholder="e.g. 20000000">
+            </label>
+            <label>Annual Excludable Spend (£):
+                <input type="number" id="excludableSpend" placeholder="e.g. 5000000">
+            </label>
+            <label>Owner Funding (3 Years) (£):
+                <input type="number" id="ownerFunding" placeholder="e.g. 30000000">
+            </label>
+        </form>
+        <div id="result">Maximum Transfer Spend per Year: £<span id="maxSpend">0</span></div>
+        <button onclick="downloadCSV()">Download as CSV</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

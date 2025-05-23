@@ -66,6 +66,18 @@ button:hover {
     font-weight: 300;
 }
 
+.club-estimator {
+    margin-top: 2em;
+    background-color: #fafafa;
+    padding: 1em;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+#clubInfo p {
+    margin: 0.3em 0;
+}
+
 @media (max-width: 400px) {
     body {
         font-size: 17px;

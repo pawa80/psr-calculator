@@ -1,13 +1,17 @@
+function getRawNumber(el) {
+    return parseFloat(el.value.replace(/,/g, "")) || 0;
+}
+
 function calculateMaxSpend() {
     const opInput = document.getElementById("operatingLoss");
     const trInput = document.getElementById("transferIncome");
     const exInput = document.getElementById("excludableSpend");
     const fundInput = document.getElementById("ownerFunding");
 
-    const X = parseFloat(opInput.value) || 0;
-    const Y = parseFloat(trInput.value) || 0;
-    const Z = parseFloat(exInput.value) || 0;
-    const F = parseFloat(fundInput.value) || 0;
+    const X = getRawNumber(opInput);
+    const Y = getRawNumber(trInput);
+    const Z = getRawNumber(exInput);
+    const F = getRawNumber(fundInput);
 
     const allEmpty = !opInput.value && !trInput.value && !exInput.value && !fundInput.value;
 
@@ -23,18 +27,39 @@ function calculateMaxSpend() {
     document.getElementById("maxSpend").innerText = formatted;
 }
 
-document.querySelectorAll("input").forEach(input => {
+document.querySelectorAll("#calculator input").forEach(input => {
     input.addEventListener("input", calculateMaxSpend);
+
+    input.addEventListener("focus", e => {
+        e.target.value = e.target.value.replace(/,/g, "");
+    });
+
+    input.addEventListener("blur", e => {
+        const val = e.target.value.replace(/,/g, "");
+        if (val === "") return;
+        const num = parseFloat(val);
+        if (!isNaN(num)) {
+            e.target.value = num.toLocaleString('en-GB', {
+                minimumFractionDigits: 0,
+                maximumFractionDigits: 0
+            });
+        }
+    });
 });
 
 // Initialize result on page load
 calculateMaxSpend();
 
 function downloadCSV() {
-    const X = document.getElementById("operatingLoss").value;
-    const Y = document.getElementById("transferIncome").value;
-    const Z = document.getElementById("excludableSpend").value;
-    const F = document.getElementById("ownerFunding").value;
+    const opInput = document.getElementById("operatingLoss");
+    const trInput = document.getElementById("transferIncome");
+    const exInput = document.getElementById("excludableSpend");
+    const fundInput = document.getElementById("ownerFunding");
+
+    const X = getRawNumber(opInput);
+    const Y = getRawNumber(trInput);
+    const Z = getRawNumber(exInput);
+    const F = getRawNumber(fundInput);
     const maxSpend = document.getElementById("maxSpend").innerText;
 
     const csv = `Operating Loss,Transfer Income,Excludable Spend,Owner Funding,Max Transfer Spend\n${X},${Y},${Z},${F},${maxSpend}`;

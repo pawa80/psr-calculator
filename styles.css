@@ -20,13 +20,16 @@ h1 {
 form label {
     display: block;
     margin-bottom: 1.2em;
+    font-size: 1rem;
+    line-height: 1.4;
 }
 input[type="text"] {
     width: 100%;
     box-sizing: border-box;
-    padding: 12px 10px; /* larger tap target */
+    padding: 14px 10px; /* larger tap target */
     font-size: 16px; /* prevent mobile zoom */
     margin-top: 0.3em;
+    min-height: 44px;
 }
 #result {
     margin-top: 1.5em;
@@ -43,9 +46,10 @@ input[type="text"] {
 button {
     background-color: #006400;
     color: white;
-    padding: 12px 15px; /* larger tap target */
+    padding: 14px 15px; /* larger tap target */
     border: none;
     cursor: pointer;
+    min-height: 44px;
 }
 button:hover {
     background-color: #004d00;
@@ -56,16 +60,17 @@ button:hover {
     display: block;
     margin-top: 0.3em;
     margin-bottom: 0;
-    font-size: 0.9em;
+    font-size: 0.95rem;
+    line-height: 1.4;
     color: #666;
     font-weight: 300;
 }
 
 @media (max-width: 400px) {
     body {
-        font-size: 0.9em; /* slightly smaller text */
+        font-size: 17px;
     }
     .container {
-        padding: 1em;
+        padding: 0 1rem;
     }
 }

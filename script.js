@@ -5,7 +5,11 @@ function calculateMaxSpend() {
     const F = parseFloat(document.getElementById("ownerFunding").value) || 0;
 
     const maxSpend = (105000000 - 3 * X + 3 * Z + F + 3 * Y) / 3;
-    document.getElementById("maxSpend").innerText = maxSpend.toFixed(2);
+    const formatted = maxSpend.toLocaleString('en-GB', {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+    });
+    document.getElementById("maxSpend").innerText = formatted;
 }
 
 document.querySelectorAll("input").forEach(input => {

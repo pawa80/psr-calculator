@@ -18,16 +18,23 @@ h1 {
 }
 form label {
     display: block;
-    margin: 15px 0 5px;
+    margin-bottom: 20px;
 }
 input[type="number"] {
     width: 100%;
+    box-sizing: border-box;
     padding: 10px;
-    margin-bottom: 10px;
+    margin-top: 5px;
 }
 #result {
     margin: 20px 0;
-    font-size: 1.2em;
+    font-size: 1.4em;
+    background-color: #eee;
+    padding: 10px;
+    border-radius: 4px;
+}
+#maxSpend {
+    font-weight: bold;
 }
 button {
     background-color: #006400;
@@ -43,8 +50,9 @@ button:hover {
 /* Small hints under input fields */
 .field-info {
     display: block;
-    margin-top: -5px;
-    margin-bottom: 10px;
+    margin-top: 5px;
+    margin-bottom: 0;
     font-size: 0.9em;
     color: #666;
+    font-weight: 300;
 }

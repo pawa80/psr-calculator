@@ -95,6 +95,7 @@ function downloadCSV() {
 
 function populateClubSelect() {
     const select = document.getElementById("clubSelect");
+    select.innerHTML = "<option value=''>Select a club</option>";
     Object.keys(clubEstimates).forEach(club => {
         const opt = document.createElement("option");
         opt.value = club;
